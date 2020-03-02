@@ -1,0 +1,124 @@
+.btn-primary-light {
+  color: var(--white);
+  background-color: hsl(211, 100%, 62%);
+}
+
+.btn-primary-light:hover,
+.btn-primary-light:focus {
+  color: var(--white);
+  background-color: hsl(211, 100%, 56%);
+}
+
+.btn-primary-light:disabled,
+.btn-primary-light.disabled {
+  color: var(--white);
+  background-color: hsl(211, 100%, 62%);
+}
+
+.btn-primary-light:not(:disabled):not(.disabled):active,
+.btn-primary-light:not(:disabled):not(.disabled).active,
+.dropdown.show > .btn-primary-light {
+  background-color: hsl(211, 100%, 52%);
+}
+
+.nav-cursor .nav-link {
+  position: relative;
+  padding-top: var(--spacer-5);
+  padding-bottom: var(--spacer-5);
+}
+
+.nav-cursor .nav-link.active::before {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  content: "";
+  border-right: solid .75rem transparent;
+  border-bottom: solid .75rem var(--body-bg);
+  border-left: solid .75rem transparent;
+  transform: translateX(-50%);
+}
+
+.nav-light .nav-link {
+  color: var(--muted);
+}
+
+.nav-light .nav-item.active .nav-link,
+.nav-light .nav-item.show .nav-link,
+.nav-light .nav-link:hover,
+.nav-light .nav-link.active,
+.nav-light .nav-link.show {
+  color: var(--white);
+}
+
+.navbar .dropdown-menu {
+  width: 100%;
+  padding: 0;
+}
+
+.navbar .dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: var(--spacer-4);
+  white-space: normal;
+  transition-timing-function: linear;
+  transition-duration: .16s;
+  transition-property: background-color, transform;
+}
+
+.navbar .dropdown-item:hover,
+.navbar .dropdown-item:focus,
+.navbar .dropdown-item:active,
+.navbar .dropdown-item.active {
+  color: inherit;
+  background-color: var(--fill-active-bg);
+  transform: scale(1.05);
+}
+
+@media (min-width: 576px) {
+  .navbar .dropdown-menu {
+    min-width: 21rem;
+  }
+}
+
+.card-group {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius-lg);
+}
+
+.card-group .card {
+  border-radius: 0;
+}
+
+.card-group .input-group .form-control {
+  background-color: var(--card-bg);
+  border-bottom-right-radius: 0;
+}
+
+.card-group .input-group-prepend {
+  background-color: var(--card-bg);
+  border-bottom-left-radius: 0;
+}
+
+.card-group-stripped .card:nth-child(even) {
+  background-color: var(--table-accent-bg);
+}
+
+.overflow-x-auto {
+  overflow-x: auto !important;
+}
+
+.overflow-y-hidden {
+  overflow-y: hidden !important;
+}
+
+.scrollbar-none {
+  scrollbar-width: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+.bg-navy {
+  background: hsl(216, 98%, 52%);
+}
