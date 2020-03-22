@@ -101,7 +101,7 @@
         </div>
       </div>
     </div>
-    <div class="container pt-3">
+    <div class="container pt-3" id="rect-grid">
       <img id="rect-img" src="https://preview.ibb.co/mysOxk/3.jpg" alt="" /><img
         id="rect-img"
         src="https://preview.ibb.co/i0PmHk/1.jpg"
@@ -123,12 +123,9 @@
   </body>
   <script>
     function img_resize() {
-      let row_width =
-        ($('[id=rect-img]')
-          .parent()
-          .width() -
-          8) /
-        4;
+      let parent_width = $('#rect-grid').width();
+      let column = parent_width > 768 ? 5 : 3;
+      let row_width = (parent_width - column * 2) / column;
 
       $('[id=rect-img]')
         .css('width', row_width)
