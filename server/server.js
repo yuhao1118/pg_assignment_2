@@ -1,76 +1,118 @@
 const express = require('express');
 const app = express();
+const path = require('path')
 
 app.use(express.static('client'));
 
+/* HTML responses */
 app.get('/', (req, res) => {
-  res.send('An alligator approaches!');
+    res.sendFile(path.join(__dirname, "../client/home.html"))
 });
 
-app.get('/images', (req, res) => {
+app.get('/user', (req, res) => {
+    res.sendFile(path.join(__dirname, "../client/user.html"))
+})
+
+app.get('/login', (req, res) => {
+    res.sendFile(path.join(__dirname, "../client/login.html"))
+})
+
+app.get('/signup', (req, res) => {
+    res.sendFile(path.join(__dirname, "../client/signup.html"))
+})
+
+/* Json responses */
+app.get('/status', (req, res) => {
+    res.send('Server listening on port 3000!');
+  });
+
+app.get('/user/:id', (req, res) => {
+  res.json({
+    id: req.params.id,
+    name: 'Yuhao Li',
+    avatar: 'dist/img/avatar.jpg',
+    followers: ['bxzr32', 'bxzr32', 'bxzr32'],
+    following: ['bxzr32', 'bxzr32']
+  });
+});
+
+app.get('/images/', (req, res) => {
   res.json([
     {
-      id: 0,
-      url:
-        'https://cdn.pixabay.com/photo/2013/07/18/10/56/railroad-tracks-163518_1280.jpg',
+      id: 'img_0',
+      usr_id: 'yuhao1118',
+      url: 'dist/img/img_0.jpg',
       likes: 12,
-      comments: []
+      downloads: 9,
+      comment: 'Railway'
     },
     {
-      id: 1,
-      url:
-        'https://cdn.pixabay.com/photo/2018/03/30/15/11/deer-3275594_1280.jpg',
+      id: 'img_1',
+      usr_id: 'lucgeo',
+      url: 'dist/img/img_1.jpg',
       likes: 15,
-      comments: []
+      downloads: 9,
+      comment: 'Deer'
     },
     {
-      id: 2,
-      url:
-        'https://cdn.pixabay.com/photo/2015/09/19/01/03/guitar-946701_1280.jpg',
+      id: 'img_2',
+      usr_id: 'yuhao1118',
+      url: 'dist/img/img_2.jpg',
       likes: 15,
-      comments: []
+      downloads: 9,
+      comment: 'Girl with guitar'
     },
     {
-      id: 3,
-      url:
-        'https://cdn.pixabay.com/photo/2016/08/17/01/39/mystery-1599527_1280.jpg',
+      id: 'img_3',
+      usr_id: 'yuhao1118',
+      url: 'dist/img/img_3.jpg',
       likes: 15,
-      comments: []
+      downloads: 9,
+      comment: 'A small island'
     },
     {
-      id: 4,
-      url:
-        'https://cdn.pixabay.com/photo/2016/07/02/12/21/eclipse-1492818_1280.jpg',
+      id: 'img_4',
+      usr_id: 'yuhao1118',
+      url: 'dist/img/img_4.jpg',
       likes: 15,
-      comments: []
+      downloads: 9,
+      comment: 'Blackhole'
     },
     {
-      id: 5,
-      url:
-        'https://cdn.pixabay.com/photo/2017/12/10/15/16/white-horse-3010129_1280.jpg',
+      id: 'img_5',
+      usr_id: 'yuhao1118',
+      url: 'dist/img/img_5.jpg',
       likes: 15,
-      comments: []
+      downloads: 9,
+      comment: 'Yellow rose'
     },
     {
-      id: 6,
-      url: 'https://cdn.pixabay.com/photo/2015/06/08/15/02/pug-801826_1280.jpg',
+      id: 'img_6',
+      usr_id: 'yuhao1118',
+      url: 'dist/img/img_6.jpg',
       likes: 15,
-      comments: []
+      downloads: 9,
+      comment: 'Horse'
     },
     {
-      id: 7,
-      url:
-        'https://cdn.pixabay.com/photo/2015/11/07/11/24/northern-lights-1031101_1280.jpg',
+      id: 'img_7',
+      usr_id: 'yuhao1118',
+      url: 'dist/img/img_7.jpg',
       likes: 15,
-      comments: []
+      downloads: 9,
+      comment: 'Dog'
     },
     {
-      id: 8,
-      url:
-        'https://cdn.pixabay.com/photo/2012/11/19/02/10/roses-66527_1280.jpg',
+      id: 'img_8',
+      usr_id: 'yuhao1118',
+      url: 'dist/img/img_8.jpg',
       likes: 15,
-      comments: []
+      downloads: 9,
+      comment: 'Aurora'
     }
   ]);
 });
-app.listen(3000, () => console.log('server listening on port 3000!'));
+
+app.listen(3000, () => {
+  console.log('Server listening on port 3000!');
+});

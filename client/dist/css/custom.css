@@ -1,22 +1,47 @@
+.shadow {
+  box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.08);
+}
+
+.dropdown-item:hover,.dropdown-item:focus{
+  box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.08);
+}
+
+#tablist .active{
+  box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.08);
+}
+
+.rect-grid-sizer,
+.rect-grid-item {
+  width: calc((100% - 40px) / 5);
+}
+
+@media (max-width: 768px) {
+  .rect-grid-sizer,
+  .rect-grid-item {
+    width: calc((100% - 20px) / 3);
+  }
+}
+
+.gutter-sizer {
+  width: 10px;
+}
+
 .grid-sizer,
 .grid-item {
-  width: 24.25%;
-}
-.gutter-sizer {
-  width: 1%;
+  width: calc((100% - 30px) / 4);
 }
 
 @media (max-width: 1200px) {
-    .grid-sizer,
-    .grid-item {
-      width: 32.66%;
-    }
+  .grid-sizer,
+  .grid-item {
+    width: calc((100% - 20px) / 3);
   }
+}
 
 @media (max-width: 992px) {
   .grid-sizer,
   .grid-item {
-    width: 49.5%;
+    width: calc((100% - 10px) / 2);
   }
 }
 
@@ -32,9 +57,208 @@
 
 .grid-item .card {
   width: 100%;
+  margin-bottom: 10px;
 }
 
-#rect-img {
-  object-fit: cover;
-  margin: 1px;
+.link-body-danger {
+  color: var(--headings-color);
+}
+
+.link-body-danger:hover {
+  color: var(--danger);
+}
+
+.link-headings {
+    color: var(--headings-color);
+  }
+  
+.link-headings:hover {
+color: var(--primary);
+}
+
+.bg-comment {
+  background-color: var(--table-accent-bg);
+}
+
+.nav-bg-light {
+  background-color:  var(--card-bg);
+}
+
+.avatar-xxl {
+  width: 9rem;
+  height: 9rem;
+}
+
+.avatar-xs {
+    width: 2.15rem;
+    height: 2.15rem;
+}
+
+.avatar-title {
+    font-size: 0.85rem;
+    color: var(--headings-color);
+    font-weight: 600;
+}
+
+.avatar-content {
+    font-size: 0.85rem !important;
+    color: var(--content-bg) !important;
+    font-weight: 400;
+}
+
+.avatar-date {
+    font-size: 0.8rem !important;
+    color: var(--content-bg) !important;
+    font-weight: 400;
+}
+
+.ml-10px {
+    margin-left: 10px;
+}
+
+@media(max-width: 768px) {
+  .avatar-xxl {
+    width: 7rem;
+    height: 7rem;
+  }
+}
+
+@media(max-width: 576px){
+  .no-radius {
+    border-radius: 0 !important;
+  }
+  .grid-item .card {
+    width: 100%;
+    margin-bottom: var(--spacer-3);
+  }
+}
+
+.btn-xs {
+  padding: 0.65rem 0.9rem;
+  font-size: 0.9rem;
+}
+
+.card-body .flex-column .btn-xs {
+  padding: 0.5rem 1.25rem;
+  font-size: small;
+}
+
+.btn-xxs {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.card-group {
+	background-color: var(--card-bg);
+	border-radius: var(--border-radius-lg)
+}
+
+.card-group .card {
+  border-radius: 0;
+	background-color: var(--table-accent-bg);
+}
+
+.card-group [aria-expanded=false] .gi-arrow-ios-downward,
+.card-group [aria-expanded=true] .gi-arrow-ios-forward {
+	display: none
+}
+
+/*Image hover effect*/
+.hover {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+ 
+.hover-text {
+  line-height: 0.9 !important;
+  font-size: 0.9rem !important;
+}
+
+.hover-2-description button{
+  font-size: 1em !important;
+}
+
+.hover-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.4s;
+}
+
+.hover img {
+  display: block;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.hover-2-description {
+  position: absolute;
+  bottom: 0;
+  opacity: 0;
+  left: 0;
+  z-index: 99;
+  transition: all 0.3s;
+}
+
+.hover-2-top {
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  left: 0;
+  z-index: 99;
+  transition: all 0.3s;
+}
+
+.hover-2:hover .hover-2-description {
+  bottom: 0.5rem;
+  opacity: 1;
+}
+
+.hover-2:hover .hover-2-top {
+  top: 0.5rem;
+  opacity: 1;
+}
+
+.hover-2:hover .hover-overlay {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1));
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1));
+}
+
+/*Dropzone*/
+:root {
+	--border-dashed-color: var(--light-900)
+}
+
+@media (prefers-color-scheme:dark) {
+	:root {
+		--border-dashed-color: var(--dark-100)
+	}
+}
+
+.dropzone {
+	display: inline-block;
+	width: 100%;
+	padding: var(--spacer-5);
+	font-weight: 500;
+	color: var(--body-color);
+	text-align: center;
+	cursor: pointer;
+	background-color: var(--card-bg);
+	border: 1px dashed var(--border-dashed-color);
+	border-radius: var(--border-radius-lg);
+	transition: background-color .4s ease
+}
+
+@media (prefers-reduced-motion:reduce) {
+	.dropzone {
+		transition: none
+	}
+}
+
+.dropzone:hover {
+	background-color: var(--fill-bg)
 }

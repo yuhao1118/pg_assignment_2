@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Home</title>
+  <meta name="description" content="#" />
+  <link rel="stylesheet" href="dist/css/grayshift.css" />
+  <link rel="stylesheet" href="dist/css/custom.css" />
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js"></script>
+  <script src="config.js"></script>
+</head>
+
+<body>
+  <div id="navigation" class="sticky-top shadow"></div>
+  <div class="container-fluid px-md-12 px-lg-6 px-xl-12">
+    <div class="row pt-3 px-sm-3 px-0">
+      <!-- <div class="col-lg-1">
+        <div class="d-lg-flex d-none flex-column card rounded shadow align-items-center sticky-lg-top"
+             style="top: 35%; width: 60px;">
+          <a class="my-6 link-danger" href="#">
+            <svg class="gi gi-home-outline fs-sm" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"
+                 xmlns="http://www.w3.org/2000/svg">
+              <path
+                    d="M20.42 10.18L12.71 2.3a1 1 0 0 0-1.42 0l-7.71 7.89A2 2 0 0 0 3 11.62V20a2 2 0 0 0 1.89 2h14.22A2 2 0 0 0 21 20v-8.38a2.07 2.07 0 0 0-.58-1.44zM10 20v-6h4v6zm9 0h-3v-7a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v7H5v-8.42l7-7.15 7 7.19z" />
+            </svg>
+          </a>
+          <a class="my-6 link-info" href="#">
+            <svg class="gi gi-grid-outline fs-sm" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"
+                 xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 3H5a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM5 9V5h4v4z" />
+              <path d="M19 3h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-4 6V5h4v4z" />
+              <path d="M9 13H5a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2zm-4 6v-4h4v4z" />
+              <path d="M19 13h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2zm-4 6v-4h4v4z" />
+            </svg>
+          </a>
+          <a class="my-6 link-primary" href="#">
+            <svg class="gi gi-compass-outline fs-sm" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"
+                 xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z" />
+              <path
+                    d="M15.68 8.32a1 1 0 0 0-1.1-.25l-4.21 1.7a1 1 0 0 0-.55.55l-1.75 4.26a1 1 0 0 0 .18 1h.05A1 1 0 0 0 9 16a1 1 0 0 0 .38-.07l4.21-1.7a1 1 0 0 0 .55-.55l1.75-4.26a1 1 0 0 0-.21-1.1zm-4.88 4.89l.71-1.74 1.69-.68-.71 1.74z" />
+            </svg>
+          </a>
+        </div>
+      </div> -->
+      <div class="col-lg-8 px-0 px-sm-3" id="card-container">
+        <div class="card-group shadow no-radius d-lg-none mb-3">
+          <!-- <div class="d-flex align-items-center py-3 px-5">
+            <h3 class="flex-grow-1 lead">
+              <a href="#">Recommand authors</a>
+            </h3>
+            <button class="btn btn-xs btn-circle btn-darker" data-toggle="collapse" data-target="#widgetOne"
+                    type="button" aria-controls="widgetOne" aria-expanded="true" aria-label="Toggle Category">
+              <svg class="gi gi-arrow-ios-forward fs-xs" width="1em" height="1em" viewBox="0 0 24 24"
+                   fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path
+                      d="M10 19a1 1 0 0 1-.64-.23 1 1 0 0 1-.13-1.41L13.71 12 9.39 6.63a1 1 0 0 1 .15-1.41 1 1 0 0 1 1.46.15l4.83 6a1 1 0 0 1 0 1.27l-5 6A1 1 0 0 1 10 19z">
+                </path>
+              </svg>
+              <svg class="gi gi-arrow-ios-downward fs-xs" width="1em" height="1em" viewBox="0 0 24 24"
+                   fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path
+                      d="M12 16a1 1 0 0 1-.64-.23l-6-5a1 1 0 1 1 1.28-1.54L12 13.71l5.36-4.32a1 1 0 0 1 1.41.15 1 1 0 0 1-.14 1.46l-6 4.83A1 1 0 0 1 12 16z">
+                </path>
+              </svg>
+            </button>
+          </div> -->
+          <div class="collapse show" id="widgetOne">
+            <div class="card rounded-bottom">
+              <div class="card-body py-0">
+                <div class="row py-5">
+                  <div class="col-4">
+                    <div class="d-flex flex-column align-items-center justify-content-center">
+                      <img id="nav-avatar" class="avatar avatar-md rounded-circle" width="100%" />
+                      <h3 class="fs-xxs lh-sm mt-2">Yuhao Li</h3>
+                      <small class="text-body mt-1">yuhao1118</small>
+                      <button class="btn btn-xs btn-primary mt-2" type="button">Follow</button>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class="d-flex flex-column align-items-center justify-content-center">
+                      <img id="nav-avatar" class="avatar avatar-md rounded-circle" width="100%" />
+                      <h3 class="fs-xxs lh-sm mt-2">Yuhao Li</h3>
+                      <small class="text-body mt-1">yuhao1118</small>
+                      <button class="btn btn-xs btn-primary mt-2" type="button">Follow</button>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class="d-flex flex-column align-items-center justify-content-center">
+                      <img id="nav-avatar" class="avatar avatar-md rounded-circle" width="100%" />
+                      <h3 class="fs-xxs lh-sm mt-2">Yuhao Li</h3>
+                      <small class="text-body mt-1">yuhao1118</small>
+                      <button class="btn btn-xs btn-primary mt-2" type="button">Follow</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card shadow no-radius mb-3 d-none" id="card-item-template">
+          <div class="card-body p-0">
+            <div class="d-flex p-3">
+              <a id="avatar-group" class="nav-link d-flex">
+                <img class="avatar avatar-xs rounded-circle align-self-center" width="100%" />
+                <div class="ml-3 d-flex flex-column justify-content-center">
+                  <p class="avatar-title"></p>
+                  <p class="avatar-date">2 days ago</p>
+                </div>
+              </a>
+              <button id="like" class="btn link-body-danger ml-auto">
+                <svg class="gi gi-more-horizontal fs-sm" width="1em" height="1em" viewBox="0 0 24 24"
+                     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="2" />
+                  <circle cx="19" cy="12" r="2" />
+                  <circle cx="5" cy="12" r="2" />
+                </svg>
+              </button>
+            </div>
+            <a id="img-modal" href="" data-toggle="modal">
+              <div class="hover hover-2">
+                <img id="grid-img" width="100%" alt="">
+                <div class="hover-overlay z-index-lower">
+                  <div class="hover-2-description px-3">
+                    <small id="grid-comment" class="text-light"></small>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <div class="modal fade z-index-higher" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
+                 aria-hidden="true">
+              <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-body p-0">
+                    <img id="grid-img" width="100%" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex px-3 pt-3 pb-0">
+              <button id="like" class="btn d-flex link-body-danger">
+                <svg class="gi gi-heart-outline fs-sm" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"
+                     xmlns="http://www.w3.org/2000/svg">
+                  <path
+                        d="M12 21a1 1 0 0 1-.71-.29l-7.77-7.78a5.26 5.26 0 0 1 0-7.4 5.24 5.24 0 0 1 7.4 0L12 6.61l1.08-1.08a5.24 5.24 0 0 1 7.4 0 5.26 5.26 0 0 1 0 7.4l-7.77 7.78A1 1 0 0 1 12 21zM7.22 6a3.2 3.2 0 0 0-2.28.94 3.24 3.24 0 0 0 0 4.57L12 18.58l7.06-7.07a3.24 3.24 0 0 0 0-4.57 3.32 3.32 0 0 0-4.56 0l-1.79 1.8a1 1 0 0 1-1.42 0L9.5 6.94A3.2 3.2 0 0 0 7.22 6z" />
+                </svg>
+                <p class="avatar-title align-self-center ml-2">Like</p>
+              </button>
+              <button id="download" class="btn d-flex link-headings ml-3">
+                <svg class="gi gi-cloud-download-outline fs-sm" width="1em" height="1em" viewBox="0 0 24 24"
+                     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                        d="M14.31 16.38L13 17.64V12a1 1 0 0 0-2 0v5.59l-1.29-1.3a1 1 0 0 0-1.42 1.42l3 3A1 1 0 0 0 12 21a1 1 0 0 0 .69-.28l3-2.9a1 1 0 1 0-1.38-1.44z" />
+                  <path
+                        d="M17.67 7A6 6 0 0 0 6.33 7a5 5 0 0 0-3.08 8.27A1 1 0 1 0 4.75 14 3 3 0 0 1 7 9h.1a1 1 0 0 0 1-.8 4 4 0 0 1 7.84 0 1 1 0 0 0 1 .8H17a3 3 0 0 1 2.25 5 1 1 0 0 0 .09 1.42 1 1 0 0 0 .66.25 1 1 0 0 0 .75-.34A5 5 0 0 0 17.67 7z" />
+                </svg>
+                <p class="avatar-title align-self-center ml-2">Download</p>
+              </button>
+              <button class="btn d-flex link-headings ml-auto">
+                <svg class="gi gi-share-outline fs-sm" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"
+                     xmlns="http://www.w3.org/2000/svg">
+                  <path
+                        d="M18 15a3 3 0 0 0-2.1.86L8 12.34V12v-.33l7.9-3.53A3 3 0 1 0 15 6v.34L7.1 9.86a3 3 0 1 0 0 4.28l7.9 3.53V18a3 3 0 1 0 3-3zm0-10a1 1 0 1 1-1 1 1 1 0 0 1 1-1zM5 13a1 1 0 1 1 1-1 1 1 0 0 1-1 1zm13 6a1 1 0 1 1 1-1 1 1 0 0 1-1 1z" />
+                </svg>
+                <p class="avatar-title align-self-center ml-2">Share</p>
+              </button>
+            </div>
+            <div class="d-flex flex-column px-3">
+              <p class="avatar-title py-2">192 likes</p>
+              <div class="d-flex pb-3">
+                <a id="avatar-group">
+                  <p class="avatar-title pr-2"></p>
+                </a>
+                <p class="avatar-content" id="grid-comment"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="d-none d-lg-block z-index-lower sticky-top" style="top: 7rem;">
+          <div class="card-group shadow rounded p-5 mb-3">
+            <div class="row no-gutters">
+              <div class="col-12">
+                <a class="nav-link d-flex" href="/user">
+                  <img id="nav-avatar" class="avatar avatar-lg rounded-circle" width="100%" />
+                  <div class="mx-3 align-self-center">
+                    <h3 id="nav-name" class="fs-xxs lh-sm"></h3>
+                    <small id="nav-usr-id" class="text-body mt-1"></small>
+                  </div>
+                </a>
+              </div>
+              <div class="col-4 pt-4 align-self-center">
+                <p class="lh-sm text-center">Posts</p>
+                <h4 class="fs-xxs lh-md mt-1 text-center">
+                  <div data-toggle="modal" data-target="#following-modal">
+                    <a href="#" id="post">10</a>
+                  </div>
+                </h4>
+              </div>
+              <div class="col-4 pt-4 align-self-center">
+                <p class="lh-sm text-center">Following</p>
+                <h4 class="fs-xxs lh-md mt-1 text-center">
+                  <div data-toggle="modal" data-target="#following-modal">
+                    <a href="#" id="following">12</a>
+                  </div>
+                </h4>
+              </div>
+              <div class="col-4 pt-4 align-self-center">
+                <p class="lh-sm text-center">Followers</p>
+                <h4 class="fs-xxs lh-md mt-1 text-center">
+                  <div data-toggle="modal" data-target="#followers-modal">
+                    <a href="#" id="followers">13</a>
+                  </div>
+                </h4>
+              </div>
+              <div class="col-12 pt-4 text-center">
+                <button class="btn btn-primary btn-sm" style="width: 100%;">
+                  <div class="d-flex justify-content-center align-items-center">
+                    <svg class="gi gi-camera-outline fs-xs mr-3" width="1em" height="1em" viewBox="0 0 24 24"
+                         fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                            d="M19 7h-3V5.5A2.5 2.5 0 0 0 13.5 3h-3A2.5 2.5 0 0 0 8 5.5V7H5a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-8a3 3 0 0 0-3-3zm-9-1.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V7h-4zM20 18a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1z" />
+                      <path
+                            d="M12 10.5a3.5 3.5 0 1 0 3.5 3.5 3.5 3.5 0 0 0-3.5-3.5zm0 5a1.5 1.5 0 1 1 1.5-1.5 1.5 1.5 0 0 1-1.5 1.5z" />
+                    </svg>
+                    <text>Submit a photo</text>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="card-group shadow d-none d-lg-block mb-3">
+            <div class="d-flex align-items-center py-3 px-5">
+              <h3 class="flex-grow-1 lead">
+                <a href="#">Recommand authors</a>
+              </h3>
+              <button class="btn btn-xs btn-circle btn-darker" data-toggle="collapse" data-target="#widgetOne"
+                      type="button" aria-controls="widgetOne" aria-expanded="true" aria-label="Toggle Category">
+                <svg class="gi gi-arrow-ios-forward fs-xs" width="1em" height="1em" viewBox="0 0 24 24"
+                     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                        d="M10 19a1 1 0 0 1-.64-.23 1 1 0 0 1-.13-1.41L13.71 12 9.39 6.63a1 1 0 0 1 .15-1.41 1 1 0 0 1 1.46.15l4.83 6a1 1 0 0 1 0 1.27l-5 6A1 1 0 0 1 10 19z">
+                  </path>
+                </svg>
+                <svg class="gi gi-arrow-ios-downward fs-xs" width="1em" height="1em" viewBox="0 0 24 24"
+                     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                        d="M12 16a1 1 0 0 1-.64-.23l-6-5a1 1 0 1 1 1.28-1.54L12 13.71l5.36-4.32a1 1 0 0 1 1.41.15 1 1 0 0 1-.14 1.46l-6 4.83A1 1 0 0 1 12 16z">
+                  </path>
+                </svg>
+              </button>
+            </div>
+            <div class="collapse show" id="widgetOne">
+              <div class="card rounded-bottom">
+                <div class="card-body py-0">
+                  <div class="row py-2">
+                    <div class="col-lg-8 py-3">
+                      <a class="nav-link d-flex" href="/user">
+                        <img id="nav-avatar" class="avatar avatar-md rounded-circle" width="100%" />
+                        <div class="mx-3 align-self-center">
+                          <h3 class="fs-xxs lh-sm">Yuhao Li</h3>
+                          <small class="text-body mt-1">yuhao1118</small>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="col-lg-4 py-3 d-flex justify-content-center align-items-center">
+                      <button class="btn btn-xs btn-primary ml-auto" type="button">Follow</button>
+                    </div>
+                    <div class="col-lg-8 py-3">
+                      <a class="nav-link d-flex" href="/user">
+                        <img id="nav-avatar" class="avatar avatar-md rounded-circle" width="100%" />
+                        <div class="mx-3 align-self-center">
+                          <h3 class="fs-xxs lh-sm">Yuhao Li</h3>
+                          <small class="text-body mt-1">yuhao1118</small>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="col-lg-4 py-3 d-flex justify-content-center align-items-center">
+                      <button class="btn btn-xs btn-primary ml-auto" type="button">Follow</button>
+                    </div>
+                    <div class="col-lg-8 py-3">
+                      <a class="nav-link d-flex" href="/user">
+                        <img id="nav-avatar" class="avatar avatar-md rounded-circle" width="100%" />
+                        <div class="mx-3 align-self-center">
+                          <h3 class="fs-xxs lh-sm">Yuhao Li</h3>
+                          <small class="text-body mt-1">yuhao1118</small>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="col-lg-4 py-3 d-flex justify-content-center align-items-center">
+                      <button class="btn btn-xs btn-primary ml-auto" type="button">Follow</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+</body>
+
+<script>
+  const base_url = config.base_url;
+  // load navbar
+  $('#navigation').load('navbar.html', () => {
+    fetch(base_url + "/user/bxzr32").then(usr => usr.json()).then(usr => {
+      $('nav #nav-login-group').addClass("d-none");
+      $('nav #nav-avatar-dropdown').show();
+      $('[id=nav-avatar]').attr('src', usr.avatar);
+      $('#nav-name').append(usr.name);
+      $('#nav-usr-id').append(usr.id);
+      $('nav #profile').attr('href', '/user');
+    })
+  });
+
+  fetch(base_url + '/images')
+    .then(res => res.json())
+    .then(res => {
+      let promises = [];
+      for (item of res) {
+        promises.push(
+          Promise.resolve(item).then(item => fetch(base_url + `/user/${item.usr_id}`)
+            .then(usr => usr.json())
+            .then(usr => {
+              let grid_item = $('#card-item-template').clone();
+              $(grid_item).attr('id', 'grid-' + item.id).removeClass('d-none');
+              $(grid_item).find('#avatar-group').attr("href", "/user");
+              $(grid_item).find('#avatar-group .avatar-title').append(usr.name);
+              $(grid_item).find('#avatar-group img').attr('src', usr.avatar);
+              $(grid_item).find('#grid-img').attr('src', item.url);
+              $(grid_item).find('#img-modal').attr('data-target', '#' + item.id);
+              $(grid_item).find('.modal,.fade').attr('id', item.id);
+              $(grid_item).find('#grid-comment').append(item.comment);
+              $(grid_item).find('#grid-date').append(new Date().toLocaleDateString());
+              //$(grid_item).find('#like').append(item.likes);
+              //$(grid_item).find('#download').append(item.downloads);
+              $('#card-container').append(grid_item);
+            }))
+        );
+      }
+      return Promise.all(promises);
+    })
+</script>
+
+</html>

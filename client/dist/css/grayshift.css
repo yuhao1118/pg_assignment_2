@@ -70,12 +70,13 @@
   --body-color: hsl(263, 6%, 68%);
   --headings-color: var(--black);
   --tab-link-color: var(--primary);
-  --body-bg: var(--light-300);
+  --body-bg: var(--white);
   --card-bg: var(--white);
-  --table-accent-bg: var(--light-200);
+  --table-accent-bg: var(--light-100);
   --fill-bg: var(--light-600);
   --fill-active-bg: var(--white);
   --progress-bg: var(--light-900);
+  --content-bg: #212529;
   --border-radius-lg: 0.5rem;
   --border-radius-sm: 0.25rem;
 }
@@ -89,9 +90,10 @@
     --tab-link-color: var(--white);
     --body-bg: var(--dark-700);
     --card-bg: var(--dark-500);
-    --table-accent-bg: var(--dark-400);
+    --table-accent-bg: var(--dark-600);
     --fill-bg: var(--dark-300);
     --fill-active-bg: hsl(0, 0%, 44%);
+    --content-bg: var(--light-100);
     --progress-bg: var(--dark-100);
   }
 }
@@ -957,7 +959,7 @@ fieldset:disabled a.btn {
 
 .btn-block {
   display: block;
-  width: 100%;
+  width: 100%
 }
 
 .btn-sm {
@@ -2475,14 +2477,6 @@ fieldset:disabled a.btn {
 
 .link-body:hover {
   color: var(--primary);
-}
-
-.link-body-danger {
-  color: var(--body-color);
-}
-
-.link-body-danger:hover {
-  color: var(--danger);
 }
 
 .embed-responsive {
