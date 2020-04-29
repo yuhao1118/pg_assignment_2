@@ -1,0 +1,30 @@
+{
+    "public": [
+        {
+            "username": "DemoUser2",
+            "userId": "demo_user_2",
+            "avatar": "/avatars/22f5dd00896211ea9cae152afdeae07a",
+            "about": "I am demo user 2"
+        },
+        {
+            "username": "DemoUser1",
+            "userId": "demo_user_1",
+            "avatar": "/avatars/0be68b00896211ea8da23b42911d81a9",
+            "about": "I am demo user 1"
+        }
+    ],
+    "private": [
+        {
+            "username": "DemoUser1",
+            "userId": "demo_user_1",
+            "password": "123456",
+            "email": "test@durham.ac.uk"
+        },
+        {
+            "username": "DemoUser2",
+            "userId": "demo_user_2",
+            "password": "123456",
+            "email": "test@durham.ac.uk"
+        }
+    ]
+}

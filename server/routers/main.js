@@ -1,5 +1,7 @@
 const express = require('express');
 const path = require('path')
+const utils = require('../utils')
+const jsonResult = require('../entities/jsonResult');
 const main = express.Router();
 
 main.get('/', (req, res) => {
@@ -11,7 +13,11 @@ main.get('/home', (req, res) => {
 })
 
 main.get('/user', (req, res) => {
-    res.sendFile(path.join(__dirname, "../client/user.html"));
+    utils.interceptLogin(req, () => {
+        res.sendFile(path.join(__dirname, "../client/user.html"));
+    }, () => {
+        res.json(jsonResult.authFail())
+    })
 })
 
 main.get('/login', (req, res) => {
@@ -21,6 +27,5 @@ main.get('/login', (req, res) => {
 main.get('/signup', (req, res) => {
     res.sendFile(path.join(__dirname, "../client/signup.html"));
 })
-
 
 module.exports = main;

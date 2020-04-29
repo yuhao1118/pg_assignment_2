@@ -1,20 +1,20 @@
 const express = require('express');
-const path = require('path')
 const _ = require('lodash');
-const fake_users = require('../fake_data/fake_users');
 const jsonResult = require('../entities/jsonResult');
+const utils = require('../utils')
 const user = express.Router();
 
-user.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client/user.html'))
-})
-
 user.get('/public/:userId', (req, res) => {
-    let user = _.find(fake_users.public, (o) => { return o.userId === req.params.userId; })
+    let user = _.find(utils.getFakeUsers().public, (o) => { return o.userId === req.params.userId; })
     if (user) {
         res.json(jsonResult.success('OK', user));
     } else {
-        res.json('fail')
+        res.json(jsonResult.notFound('user not found'))
     }
 })
+
+user.get('/recommend', (req, res) => {
+    res.json(jsonResult.success("OK", utils.getFakeUsers().public))
+})
+
 module.exports = user;

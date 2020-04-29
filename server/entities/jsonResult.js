@@ -1,25 +1,40 @@
 const jsonResult = {
     codes: {
-        OK: 0,
-        AUTH_FAILED: -1,
-        LOGIN_FAILED: -2,
-        PARAM_INVALID: -3,
-        LOGIC_ERROR: -4
+        OK: 200,
+        BAD_REQUEST: 400,
+        AUTH_FAILED: 401,
+        NOT_FOUND: 404,
+        SERVER_ERROR: 500
     },
     success: function (msg, data) {
-        msg = msg || 'OK';
-        data = data || null;
         return {
             code: jsonResult.codes.OK,
-            msg: msg,
-            data: data
+            msg,
+            data
+        }
+    },
+    badRequest: function (msg) {
+        return {
+            code: jsonResult.codes.BAD_REQUEST,
+            msg
         }
     },
     authFail: function (msg) {
-        msg = msg || 'Authentication failed';
         return {
             code: jsonResult.codes.AUTH_FAILED,
-            msg: msg
+            msg
+        }
+    },
+    notFound: function (msg) {
+        return {
+            code: jsonResult.codes.NOT_FOUND,
+            msg
+        }
+    },
+    serverError: function (msg) {
+        return {
+            code: jsonResult.codes.SERVER_ERROR,
+            msg
         }
     }
 }
