@@ -10,7 +10,7 @@ const photoEntity = {
     },
     uploadImage: function(files, userId) {
         if (!files || Object.keys(files).length === 0) {
-            return jsonResult.notFound("No file were uploaded.");
+            return jsonResult.notFound("no file were uploaded.");
         }
         let uploadFile = files.file;
         let imgId = utils.genId();
@@ -33,7 +33,7 @@ const photoEntity = {
             });
 
             utils.updateFakePhotos(fakePhotos);
-            return jsonResult.success("Upload success", fakePhotos);
+            return jsonResult.success("upload success", fakePhotos);
         })
     },
     deleteImage: function(imgId, userId) {
@@ -50,7 +50,7 @@ const photoEntity = {
         }
         _.remove(fakePhotos, n => (n.userId == userId && n.imgId == imgId));
         utils.updateFakePhotos(fakePhotos);
-        return jsonResult.success("Delete success", fakePhotos);
+        return jsonResult.success("delete success", fakePhotos);
     }
 }
 

@@ -1,33 +1,18 @@
 const express = require('express');
-const _ = require('lodash');
-const fake_users = require('../fake_data/fake_users.json');
 const jsonResult = require('../entities/jsonResult');
-const utils = require('../utils');
+const authEntity = require('../entities/authEntity')
 const auth = express.Router();
 
 auth.post('/login', (req, res) => {
-    let user = _.find(fake_users.private, (o) => { return o.username === req.body.username; })
-    if (user && req.body.password === user.password) {
-        req.session.userId = user.userId;
-        res.redirect('/home');
-    }
-    else {
-        res.redirect('/login');
-    }
+    res.json(authEntity.login(req, req.body.username, req.body.password));
 })
 
 auth.get('/logout', (req, res) => {
-    if (req.session) {
-        req.session.destroy()
-    }
-    res.redirect('/')
+    res.json(authEntity.logout(req.session))
 })
 
 auth.get('/login_status', (req, res) => {
-    let loginStatus = {
-        loggedIn: Boolean(req.session.userId)
-    }
-    res.json(jsonResult.success("OK", loginStatus))
+    res.json(authEntity.loginStatus(req.session))
 })
 
 auth.get('/getLoggedInUser', (req, res) => {

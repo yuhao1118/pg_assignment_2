@@ -2,61 +2,78 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Login</title>
-  <meta name="description" content="#">
-  <link rel="stylesheet" href="dist/css/grayshift.css" />
-  <link rel="stylesheet" href="dist/css/custom.css" />
-  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Login</title>
+    <meta name="description" content="#">
+    <link rel="stylesheet" href="dist/css/grayshift.css" />
+    <link rel="stylesheet" href="dist/css/custom.css" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="./dist/javascripts/common.js"></script>
 </head>
 
 <body>
-  <div id="navigation"></div>
-  <div class="py-8 mx-auto" style="max-width: 468px;">
-    <div class="container">
-      <div class="card">
-        <div class="card-body p-sm-9">
-          <form action="/api/auth/login" method="POST">
-            <h2 class="mb-5">Login</h2>
-            <label class="sr-only" for="username">Username</label>
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <svg class="gi gi-person-fill fs-sm" width="1em" height="1em" viewBox="0 0 24 24"
-                     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4z" />
-                  <path d="M18 21a1 1 0 0 0 1-1 7 7 0 0 0-14 0 1 1 0 0 0 1 1z" />
-                </svg>
-              </div>
-              <input class="form-control form-control-lg" name="username" type="text" placeholder="Username"
-                     required>
+    <div id="navigation"></div>
+    <div class="py-8 mx-auto" style="max-width: 468px;">
+        <div class="container">
+            <div class="card">
+                <div class="card-body p-sm-9">
+                    <form id="login-form">
+                        <h2 class="mb-5">Login</h2>
+                        <label class="sr-only" for="username">Username</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <svg class="gi gi-person-fill fs-sm" width="1em" height="1em" viewBox="0 0 24 24"
+                                     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4z" />
+                                    <path d="M18 21a1 1 0 0 0 1-1 7 7 0 0 0-14 0 1 1 0 0 0 1 1z" />
+                                </svg>
+                            </div>
+                            <input id="username" class="form-control form-control-lg" name="username" type="text"
+                                   placeholder="Username"
+                                   required>
+                        </div>
+                        <label class="sr-only" for="password">Password</label>
+                        <div class="input-group mb-5">
+                            <div class="input-group-prepend">
+                                <svg class="gi gi-lock-fill fs-sm" width="1em" height="1em" viewBox="0 0 24 24"
+                                     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="12" cy="15" r="1" />
+                                    <path
+                                          d="M17 8h-1V6.11a4 4 0 1 0-8 0V8H7a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-8a3 3 0 0 0-3-3zm-7-1.89A2.06 2.06 0 0 1 12 4a2.06 2.06 0 0 1 2 2.11V8h-4zM12 18a3 3 0 1 1 3-3 3 3 0 0 1-3 3z" />
+                                </svg>
+                            </div>
+                            <input id="password" class="form-control form-control-lg" name="password" type="password"
+                                   placeholder="Password" required>
+                        </div>
+                        <a class="link-primary" href="#">Forgot password?</a>
+                        <button class="btn btn-block btn-lg btn-primary mt-3" id="login-button" type="button">Sign In</button>
+                        <p class="mt-5 text-center">Don't have account? <a class="link-primary" href="#">Sign Up</a>.
+                        </p>
+                    </form>
+                </div>
             </div>
-            <label class="sr-only" for="password">Password</label>
-            <div class="input-group mb-5">
-              <div class="input-group-prepend">
-                <svg class="gi gi-lock-fill fs-sm" width="1em" height="1em" viewBox="0 0 24 24"
-                     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="12" cy="15" r="1" />
-                  <path
-                        d="M17 8h-1V6.11a4 4 0 1 0-8 0V8H7a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-8a3 3 0 0 0-3-3zm-7-1.89A2.06 2.06 0 0 1 12 4a2.06 2.06 0 0 1 2 2.11V8h-4zM12 18a3 3 0 1 1 3-3 3 3 0 0 1-3 3z" />
-                </svg>
-              </div>
-              <input class="form-control form-control-lg" name="password" type="password"
-                     placeholder="Password" required>
-            </div>
-            <a class="link-primary" href="#">Forgot password?</a>
-            <button class="btn btn-block btn-lg btn-primary mt-3" type="submit">Sign In</button>
-            <p class="mt-5 text-center">Don't have account? <a class="link-primary" href="#">Sign Up</a>.
-            </p>
-          </form>
         </div>
-      </div>
     </div>
-  </div>
 </body>
 <script>
-  $('#navigation').load('navbar.html');
+    const base_url = config.base_url;
+
+    $('#navigation').load('navbar.html');
+    $('#login-button').on('click', () => {
+        fetch(base_url + '/api/auth/login', {
+            method : 'post',
+            headers: { 'content-type': "application/x-www-form-urlencoded" },
+            body : $('#login-form').serialize(),
+        })
+        .then(res => res.json())
+        .then(res => {
+            if (res.code === 200)
+                $(location).attr('href', base_url)
+        })
+    })
 </script>
+
 </html>

@@ -12,14 +12,14 @@ photo
     if (req.session.userId) {
         res.json(photoEntity.uploadImage(req.files, req.session.userId));
     } else {
-        res.json(jsonResult.authFail());
+        res.json(jsonResult.authFail("not login"));
     }
 })
 .delete('/:imgId', (req, res) => {
     if (req.session.userId) {
         res.json(photoEntity.deleteImage(req.params.imgId, req.session.userId));
     } else {
-        res.json(jsonResult.authFail());
+        res.json(jsonResult.authFail("not login"));
     }
 })
 

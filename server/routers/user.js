@@ -1,20 +1,22 @@
 const express = require('express');
-const _ = require('lodash');
-const jsonResult = require('../entities/jsonResult');
-const utils = require('../utils')
+const userEntity = require('../entities/userEntity');
+const jsonResult = require('../entities/jsonResult')
 const user = express.Router();
 
 user.get('/public/:userId', (req, res) => {
-    let user = _.find(utils.getFakeUsers().public, (o) => { return o.userId === req.params.userId; })
-    if (user) {
-        res.json(jsonResult.success('OK', user));
+    res.json(userEntity.getUserProfileById(req.params.userId))
+})
+
+user.get('/my', (req, res) => {
+    if (req.session.userId) {
+        res.json(userEntity.getUserProfileById(req.session.userId))
     } else {
-        res.json(jsonResult.notFound('user not found'))
+        res.json(jsonResult.authFail("not login"))
     }
 })
 
 user.get('/recommend', (req, res) => {
-    res.json(jsonResult.success("OK", utils.getFakeUsers().public))
+    res.json(userEntity.getRecommendUser())
 })
 
 module.exports = user;
