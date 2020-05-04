@@ -5,17 +5,17 @@ const jsonResult = require('./jsonResult');
 const fs = require('fs')
 
 const photoEntity = {
-    getAll : function() {
-        return jsonResult.success("images", utils.getFakePhotos());
+    getAll: function () {
+        return jsonResult.success("Images found.", utils.getFakePhotos());
     },
-    getPhotosById : function(userId) {
+    getPhotosById: function (userId) {
         let fakePhotos = utils.getFakePhotos();
         let images = _.filter(fakePhotos, n => n.userId === userId);
-        return jsonResult.success("images found", images);
+        return jsonResult.success("Images found.", images);
     },
-    uploadImage: function(files, userId) {
+    uploadImage: function (files, userId) {
         if (!files || Object.keys(files).length === 0) {
-            return jsonResult.notFound("no file were uploaded.");
+            return jsonResult.notFound("No file were uploaded.");
         }
         let uploadFile = files.file;
         let imgId = utils.genId();
@@ -23,7 +23,7 @@ const photoEntity = {
         let uploadPath = path.join(__dirname, `../uploads/publishes/${imgId}`);
 
         uploadFile.mv(uploadPath, err => {
-            if (err){
+            if (err) {
                 console.log(err);
                 return jsonResult.serverError(err)
             }
@@ -38,10 +38,10 @@ const photoEntity = {
             });
 
             utils.updateFakePhotos(fakePhotos);
-            return jsonResult.success("upload success", fakePhotos);
+            return jsonResult.success("Upload success!", fakePhotos);
         })
     },
-    deleteImage: function(imgId, userId) {
+    deleteImage: function (imgId, userId) {
         let fakePhotos = utils.getFakePhotos();
         let image = _.find(fakePhotos, n => (n.userId == userId && n.imgId == imgId))
         if (image) {
@@ -52,10 +52,13 @@ const photoEntity = {
                     return jsonResult.serverError(err)
                 }
             })
+            _.remove(fakePhotos, n => (n.userId == userId && n.imgId == imgId));
+
+            utils.updateFakePhotos(fakePhotos);
+            return jsonResult.success("Delete success!", fakePhotos);
+        } else {
+            return jsonResult.serverError("Delete error!");
         }
-        _.remove(fakePhotos, n => (n.userId == userId && n.imgId == imgId));
-        utils.updateFakePhotos(fakePhotos);
-        return jsonResult.success("delete success", fakePhotos);
     }
 }
 

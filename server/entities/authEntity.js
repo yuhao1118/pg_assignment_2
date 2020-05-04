@@ -7,17 +7,17 @@ const authEntity = {
         let user = _.find(utils.getFakeUsers().private, o => (o.username === username && o.password === password));
         if (user) {
             req.session.userId = user.userId;
-            return jsonResult.success("login success", user)
+            return jsonResult.success("Login success!", user)
         } else {
-            return jsonResult.authFail("username or password incorrect")
+            return jsonResult.authFail("Username or password incorrect.")
         }
     },
     logout : function (session) {
         if (session.userId) {
             session.destroy();
-            return jsonResult.success("logout success", {})
+            return jsonResult.success("Logout success!", {})
         } else {
-            return jsonResult.authFail("not login")
+            return jsonResult.authFail("Not login.")
         }
     },
     loginStatus : function(session) {
@@ -25,7 +25,7 @@ const authEntity = {
             loggedIn : Boolean(session.userId),
             loggedInUser : session.userId
         }
-        return jsonResult.success("login status", loginState);
+        return jsonResult.success("Login status.", loginState);
     }
 }
 

@@ -7,6 +7,9 @@
     "start": "nodemon ./server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "nodemonConfig": {
+    "ignore": ["./server/uploads/", "./server/fake_data/"]
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {

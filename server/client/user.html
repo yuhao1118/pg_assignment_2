@@ -9,11 +9,13 @@
     <link rel="stylesheet" href="dist/css/grayshift.css" />
     <link rel="stylesheet" href="dist/css/custom.css" />
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js"></script>
     <script src="https://timeago.yarp.com/jquery.timeago.js"></script>
+    <script src="https://rawgit.com/enyo/dropzone/master/dist/dropzone.js"></script>
     <script src="./dist/javascripts/config.js"></script>
     <script src="./dist/javascripts/main.js"></script>
 </head>
@@ -30,6 +32,7 @@
                     <div class="d-flex flex-column justify-content-center">
                         <h4>
                             <a href="#"></a>
+                            <button id="edit-profile" class="btn btn-xs btn-primary ml-3 d-none">Edit profile</button>
                         </h4>
                         <footer></footer>
                         <p class="mt-3"></p>
@@ -45,14 +48,34 @@
             <div class="gutter-sizer"></div>
             <div class="grid-item d-none" id="grid-item-template">
                 <div class="card-body p-0">
-                    <a id="img-modal" href="" data-toggle="modal">
+                    <a id="image-modal-toggle" href="" data-toggle="modal">
                         <img class="shadow" id="grid-img" width="100%" alt="">
                     </a>
-                    <div class="modal fade z-index-higher" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
-                         aria-hidden="true">
+                    <div class="modal fade z-index-higher" id="image-modal" tabindex="-1" role="dialog"
+                        aria-labelledby="modalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <img id="grid-img" width="100%" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade z-index-higher" id="delete-modal" tabindex="-1" role="dialog"
+                        aria-labelledby="modalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-body p-0">
+                                    <img id="grid-img" width="100%" alt="">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-xs btn-danger"
+                                        id="confirm-delete">Delete</button>
+                                    <button type="button" class="btn btn-xs btn-secondary"
+                                        data-dismiss="modal">Cancel</button>
+                                    <div class="alert alert-success mt-5 d-none show" id="success-delete-alert"
+                                        role="alert">
+                                        <span></span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -64,11 +87,11 @@
                                 <p class="avatar-date"></p>
                             </div>
                         </a>
-                        <button id="like" class="btn d-flex link-body-danger ml-auto">
+                        <button id="delete" data-toggle="modal" class="btn d-flex link-body-danger ml-auto">
                             <svg class="gi gi-trash-2-outline fs-sm" width="0.75em" height="0.75em" viewBox="0 0 24 24"
-                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path
-                                      d="M21 6h-5V4.33A2.42 2.42 0 0 0 13.5 2h-3A2.42 2.42 0 0 0 8 4.33V6H3a1 1 0 0 0 0 2h1v11a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V8h1a1 1 0 0 0 0-2zM10 4.33c0-.16.21-.33.5-.33h3c.29 0 .5.17.5.33V6h-4zM18 19a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V8h12z">
+                                    d="M21 6h-5V4.33A2.42 2.42 0 0 0 13.5 2h-3A2.42 2.42 0 0 0 8 4.33V6H3a1 1 0 0 0 0 2h1v11a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V8h1a1 1 0 0 0 0-2zM10 4.33c0-.16.21-.33.5-.33h3c.29 0 .5.17.5.33V6h-4zM18 19a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V8h12z">
                                 </path>
                                 <path d="M9 17a1 1 0 0 0 1-1v-4a1 1 0 0 0-2 0v4a1 1 0 0 0 1 1z"></path>
                                 <path d="M15 17a1 1 0 0 0 1-1v-4a1 1 0 0 0-2 0v4a1 1 0 0 0 1 1z"></path>
@@ -76,20 +99,18 @@
                         </button>
                         <button id="download" class="btn d-flex link-headings ml-2">
                             <svg class="gi gi-cloud-download-outline fs-sm" width="0.75em" height="0.75em"
-                                 viewBox="0 0 24 24"
-                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path
-                                      d="M14.31 16.38L13 17.64V12a1 1 0 0 0-2 0v5.59l-1.29-1.3a1 1 0 0 0-1.42 1.42l3 3A1 1 0 0 0 12 21a1 1 0 0 0 .69-.28l3-2.9a1 1 0 1 0-1.38-1.44z" />
+                                    d="M14.31 16.38L13 17.64V12a1 1 0 0 0-2 0v5.59l-1.29-1.3a1 1 0 0 0-1.42 1.42l3 3A1 1 0 0 0 12 21a1 1 0 0 0 .69-.28l3-2.9a1 1 0 1 0-1.38-1.44z" />
                                 <path
-                                      d="M17.67 7A6 6 0 0 0 6.33 7a5 5 0 0 0-3.08 8.27A1 1 0 1 0 4.75 14 3 3 0 0 1 7 9h.1a1 1 0 0 0 1-.8 4 4 0 0 1 7.84 0 1 1 0 0 0 1 .8H17a3 3 0 0 1 2.25 5 1 1 0 0 0 .09 1.42 1 1 0 0 0 .66.25 1 1 0 0 0 .75-.34A5 5 0 0 0 17.67 7z" />
+                                    d="M17.67 7A6 6 0 0 0 6.33 7a5 5 0 0 0-3.08 8.27A1 1 0 1 0 4.75 14 3 3 0 0 1 7 9h.1a1 1 0 0 0 1-.8 4 4 0 0 1 7.84 0 1 1 0 0 0 1 .8H17a3 3 0 0 1 2.25 5 1 1 0 0 0 .09 1.42 1 1 0 0 0 .66.25 1 1 0 0 0 .75-.34A5 5 0 0 0 17.67 7z" />
                             </svg>
                         </button>
                         <button class="btn d-flex link-headings ml-2">
                             <svg class="gi gi-share-outline fs-sm" width="0.75em" height="0.75em" viewBox="0 0 24 24"
-                                 fill="currentColor"
-                                 xmlns="http://www.w3.org/2000/svg">
+                                fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path
-                                      d="M18 15a3 3 0 0 0-2.1.86L8 12.34V12v-.33l7.9-3.53A3 3 0 1 0 15 6v.34L7.1 9.86a3 3 0 1 0 0 4.28l7.9 3.53V18a3 3 0 1 0 3-3zm0-10a1 1 0 1 1-1 1 1 1 0 0 1 1-1zM5 13a1 1 0 1 1 1-1 1 1 0 0 1-1 1zm13 6a1 1 0 1 1 1-1 1 1 0 0 1-1 1z" />
+                                    d="M18 15a3 3 0 0 0-2.1.86L8 12.34V12v-.33l7.9-3.53A3 3 0 1 0 15 6v.34L7.1 9.86a3 3 0 1 0 0 4.28l7.9 3.53V18a3 3 0 1 0 3-3zm0-10a1 1 0 1 1-1 1 1 1 0 0 1 1-1zM5 13a1 1 0 1 1 1-1 1 1 0 0 1-1 1zm13 6a1 1 0 1 1 1-1 1 1 0 0 1-1 1z" />
                             </svg>
                         </button>
                     </div>
@@ -97,6 +118,43 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="upload-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
+        aria-hidden="true" style="display: none;">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="fs-xs" id="modalLabel">Upload</h2>
+                    <button class="btn btn-sm btn-circle btn-neutral align-self-start" data-dismiss="modal"
+                        type="button" aria-label="Close">
+                        <svg class="gi gi-close fs-sm" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M13.41 12l4.3-4.29a1 1 0 1 0-1.42-1.42L12 10.59l-4.29-4.3a1 1 0 0 0-1.42 1.42l4.3 4.29-4.3 4.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l4.29-4.3 4.29 4.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="modal-body rounded-bottom pt-0">
+                    <div class="alert alert-danger mb-3 d-none show" id="fail-login-alert" role="alert">
+                        <span></span>
+                    </div>
+                    <form action="/api/photo/" method="POST" enctype="multipart/form-data" class="dropzone"
+                        id="uploadForm"></form>
+                    <button class="btn btn-block btn-lg btn-primary mt-5" type="button" id="upload-button"> Upload
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="position-fixed z-index-high" data-toggle="modal" data-target="#upload-modal" href=""
+        style="right: var(--spacer-5); bottom: var(--spacer-5);">
+        <span class="icon icon-md mr-5 bg-white rounded-circle">
+            <svg class="gi gi-plus fs-sm" width="1em" height="1em" viewBox="0 0 24 24" fill="var(--black)"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 11h-6V5a1 1 0 0 0-2 0v6H5a1 1 0 0 0 0 2h6v6a1 1 0 0 0 2 0v-6h6a1 1 0 0 0 0-2z"></path>
+            </svg>
+        </span>
+    </a>
 </body>
 <script>
     const base_url = config.base_url;
@@ -126,8 +184,27 @@
                             $(grid_item).find("#avatar-group .avatar-title").append(usr.username);
                             $(grid_item).find("#avatar-group .avatar-date").append($.timeago(item.date));
                             $(grid_item).find("#grid-img").attr("src", item.url);
-                            $(grid_item).find("#img-modal").attr("data-target", "#img" + item.imgId);
-                            $(grid_item).find(".modal,.fade").attr("id", "img" + item.imgId);
+                            $(grid_item).find("#image-modal-toggle").attr("data-target", "#img" + item.imgId);
+                            $(grid_item).find("#image-modal").attr("id", "img" + item.imgId);
+                            $(grid_item).find("#delete").attr("data-target", "#delete" + item.imgId);
+                            $(grid_item).find("#delete-modal").attr("id", "delete" + item.imgId);
+                            $(grid_item).find(`#delete${item.imgId} #confirm-delete`).click(() => {
+                                let imgId = $(grid_item).attr('id')
+                                fetch(base_url + `/api/photo/${imgId}`, { method: "DELETE" }).then(res => res.json())
+                                    .then(res => {
+                                        if (res.code === 200 && res.msg === "delete success") {
+                                            $(grid_item).find("#success-delete-alert span").empty();
+                                            $(grid_item).find("#success-delete-alert").removeClass('d-none');
+                                            $(grid_item).find("#success-delete-alert span").append("Upload success!");
+                                            setTimeout(() => {
+                                                $(grid_item).find("#success-delete-alert").addClass('d-none');
+                                                location.reload()
+                                            }, 3000);
+                                        } else {
+                                            alert(res.msg)
+                                        }
+                                    })
+                            })
                             $(grid_item).find("#like p").append(item.likes + " likes");
                             $(".grid").append(grid_item);
                         }
@@ -149,23 +226,66 @@
     // init navbar
     loadNavbarAvatar();
 
+    // check where it is redirect from
     fetch(base_url + "/api/auth/login_status")
         .then(res => res.json())
         .then(res => res.data)
         .then(res => {
             if (res.loggedIn && !urlParams.userId) {
                 loadImages("/api/user/my");
+                $('#edit-profile').removeClass('d-none');
             } else if (urlParams.userId) {
                 if (res.loggedIn && urlParams.userId === res.loggedInUser) {
                     $(location).attr('href', base_url + "/user")
                 } else {
                     loadImages(`/api/user/public/${urlParams.userId}`);
+                    $("[id=delete]").addClass('d-none');
+                    $("[id=download]").addClass('ml-auto').removeClass('ml-2');
                 }
             } else {
                 $(location).attr('href', base_url + "/login")
             }
 
         })
+
+    // init upload zone
+    Dropzone.options.uploadForm = {
+        autoProcessQueue: false,
+        addRemoveLinks: false,
+        init: function (e) {
+            var myDropzone = this;
+            $("#upload-button").on("click", () => {
+                fetch(base_url + "/api/auth/login_status")
+                    .then(res => res.json())
+                    .then(res => res.data)
+                    .then(res => {
+                        if (res.loggedIn) {
+                            myDropzone.processQueue();
+                        } else {
+                            // toast login
+                            $("#fail-login-alert span").empty();
+                            $("#fail-login-alert").removeClass('d-none');
+                            $("#fail-login-alert span").append("You're not login. Redirecting to login page...");
+                            // redirect to login
+                            setTimeout(() => {
+                                $("#fail-login-alert").addClass('d-none');
+                                $(location).attr('href', base_url + "/login")
+                            }, 3000);
+                        }
+                    })
+            });
+            myDropzone.on("complete", function (file) {
+                if (
+                    this.getUploadingFiles().length === 0 &&
+                    this.getQueuedFiles().length === 0
+                ) {
+                    setTimeout(() => {
+                        location.reload()
+                    }, 1500);
+                }
+            });
+        },
+    };
 
 </script>
 

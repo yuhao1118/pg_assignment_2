@@ -12,19 +12,23 @@ photo.get('/all/:userId', (req, res) => {
 })
 
 photo
-.post('/', (req, res) => {
-    if (req.session.userId) {
-        res.json(photoEntity.uploadImage(req.files, req.session.userId));
-    } else {
-        res.json(jsonResult.authFail("not login"));
-    }
-})
-.delete('/:imgId', (req, res) => {
-    if (req.session.userId) {
-        res.json(photoEntity.deleteImage(req.params.imgId, req.session.userId));
-    } else {
-        res.json(jsonResult.authFail("not login"));
-    }
-})
+    .post('/like/:imgId/:userId', (req, res) => { })
+    .delete('/like/:imgId/:userId', (req, res) => { })
+
+photo
+    .post('/', (req, res) => {
+        if (req.session.userId) {
+            res.json(photoEntity.uploadImage(req.files, req.session.userId));
+        } else {
+            res.json(jsonResult.authFail("not login"));
+        }
+    })
+    .delete('/:imgId', (req, res) => {
+        if (req.session.userId) {
+            res.json(photoEntity.deleteImage(req.params.imgId, req.session.userId));
+        } else {
+            res.json(jsonResult.authFail("not login"));
+        }
+    })
 
 module.exports = photo;
