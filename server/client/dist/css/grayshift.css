@@ -77,6 +77,7 @@
   --fill-active-bg: var(--white);
   --progress-bg: var(--light-900);
   --content-bg: #212529;
+  --nav-bg: rgba(255,255,255,0.7);
   --border-radius-lg: 0.5rem;
   --border-radius-sm: 0.25rem;
 }
@@ -94,6 +95,7 @@
     --fill-bg: var(--dark-300);
     --fill-active-bg: hsl(0, 0%, 44%);
     --content-bg: var(--light-100);
+    --nav-bg: rgba(71,71,71,0.7);
     --progress-bg: var(--dark-100);
   }
 }

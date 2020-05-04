@@ -1,18 +1,10 @@
 .navbar {
   backdrop-filter: saturate(180%) blur(20px);
-  background: rgba(255,255,255,0.7);
+  background: var(--nav-bg);
 }
 
 .shadow {
   box-shadow: 0px 4px 14px 0px rgba(0,0,0,0.2);
-}
-
-.dropdown-item:hover,.dropdown-item:focus{
-  box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.08);
-}
-
-#tablist .active{
-  box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.08);
 }
 
 .gutter-sizer {
@@ -31,7 +23,7 @@
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   .grid-sizer,
   .grid-item {
     width: 100%;
@@ -67,7 +59,7 @@ color: var(--primary);
 }
 
 .nav-bg-light {
-  background-color:  var(--card-bg);
+  background-color:  var(--body-bg) !important;
 }
 
 .avatar-xxl {

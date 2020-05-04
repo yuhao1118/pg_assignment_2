@@ -18,22 +18,23 @@ const photoEntity = {
             return jsonResult.notFound("No file were uploaded.");
         }
         let uploadFile = files.file;
+        let fileType = utils.getFileType(files.file.name);
         let imgId = utils.genId();
+        let filename = `${imgId}.${fileType}`;
         let fakePhotos = utils.getFakePhotos();
-        let uploadPath = path.join(__dirname, `../uploads/publishes/${imgId}`);
+        let uploadPath = path.join(__dirname, `../uploads/publishes/${filename}`);
 
         uploadFile.mv(uploadPath, err => {
             if (err) {
                 console.log(err);
                 return jsonResult.serverError(err)
             }
-
             fakePhotos.push({
                 imgId,
                 userId,
+                filename,
                 date: new Date(),
-                likes: 0,
-                url: `/publishes/${imgId}`,
+                url: `/publishes/${filename}`,
                 downloads: 0
             });
 
@@ -45,7 +46,7 @@ const photoEntity = {
         let fakePhotos = utils.getFakePhotos();
         let image = _.find(fakePhotos, n => (n.userId == userId && n.imgId == imgId))
         if (image) {
-            let uploadPath = path.join(__dirname, `../uploads/publishes/${imgId}`)
+            let uploadPath = path.join(__dirname, `../uploads/publishes/${image.filename}`)
             fs.unlink(uploadPath, err => {
                 if (err) {
                     console.log(err);
@@ -58,6 +59,19 @@ const photoEntity = {
             return jsonResult.success("Delete success!", fakePhotos);
         } else {
             return jsonResult.serverError("Delete error!");
+        }
+    },
+    downloadCount: function (imgId) {
+        let fakePhotos = utils.getFakePhotos();
+        let image = _.find(fakePhotos, n => n.imgId == imgId)
+        if (image) {
+            fakePhotos = _.map(fakePhotos, n => {
+                return n.imgId === imgId ? n.downloads++ : n;
+            });
+            utils.updateFakePhotos(fakePhotos);
+            return jsonResult.success("Download count incremented.", image)
+        } else {
+            return jsonResult.serverError("Image not found")
         }
     }
 }

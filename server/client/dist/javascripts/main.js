@@ -19,7 +19,7 @@ const loadNavbarAvatar = () => {
                         .then(my => {
                             if (my.code === 200) {
                                 $("nav #nav-login-group").addClass("d-none");
-                                $("nav #nav-avatar-dropdown").show();
+                                $("nav #nav-avatar-dropdown").removeClass("d-none");
                                 $("#nav-avatar").attr("src", my.data.avatar);
                                 $("nav #profile").attr("href", "/user");
                             }

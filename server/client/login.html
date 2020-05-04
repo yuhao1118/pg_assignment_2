@@ -73,7 +73,7 @@
         })
             .then(res => res.json())
             .then(res => {
-                if (res.code === 200 && res.data) { $(location).attr('href', base_url) }
+                if (res.code === 200 && res.msg === "Login success!") { $(location).attr('href', base_url) }
                 else {
                     $("#fail-login-alert span").empty();
                     $("#fail-login-alert").removeClass('d-none');

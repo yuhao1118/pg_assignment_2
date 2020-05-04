@@ -1,5 +1,4 @@
 const express = require('express');
-const jsonResult = require('../entities/jsonResult');
 const authEntity = require('../entities/authEntity')
 const auth = express.Router();
 

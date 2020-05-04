@@ -6,13 +6,11 @@ const utils = {
     genId: function () {
         return uuid.v1().replace(/-/g, '')
     },
-    interceptLogin: function (req, onSuccess, onFail) {
-        if (req.session.userId) {
-            onSuccess();
-        }
-        else {
-            onFail();
-        }
+    getFileType: function(filePath) {
+        var startIndex = filePath.lastIndexOf(".");
+        if(startIndex != -1)
+            return filePath.substring(startIndex+1, filePath.length).toLowerCase();
+        else return "";
     },
     sortByPublishes: function (a, b) {
         return b.publishes.length - a.publishes.length;

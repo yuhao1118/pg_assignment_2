@@ -11,12 +11,11 @@ photo.get('/all/:userId', (req, res) => {
     res.json(photoEntity.getPhotosById(req.params.userId));
 })
 
-photo
-    .post('/like/:imgId/:userId', (req, res) => { })
-    .delete('/like/:imgId/:userId', (req, res) => { })
+photo.get('/downloads/:imgId', (req, res) => {
+    res.json(photoEntity.downloadCount(req.params.imgId))
+})
 
-photo
-    .post('/', (req, res) => {
+photo.post('/', (req, res) => {
         if (req.session.userId) {
             res.json(photoEntity.uploadImage(req.files, req.session.userId));
         } else {
