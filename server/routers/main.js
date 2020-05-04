@@ -13,11 +13,7 @@ main.get('/home', (req, res) => {
 })
 
 main.get('/user', (req, res) => {
-    utils.interceptLogin(req, () => {
-        res.sendFile(path.join(__dirname, "../client/user.html"));
-    }, () => {
-        res.json(jsonResult.authFail())
-    })
+    res.sendFile(path.join(__dirname, "../client/user.html"))
 })
 
 main.get('/login', (req, res) => {

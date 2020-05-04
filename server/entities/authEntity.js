@@ -22,7 +22,8 @@ const authEntity = {
     },
     loginStatus : function(session) {
         let loginState = {
-            loggedIn : Boolean(session.userId)
+            loggedIn : Boolean(session.userId),
+            loggedInUser : session.userId
         }
         return jsonResult.success("login status", loginState);
     }

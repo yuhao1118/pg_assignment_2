@@ -6,7 +6,12 @@ const fs = require('fs')
 
 const photoEntity = {
     getAll : function() {
-        return jsonResult.success("OK", utils.getFakePhotos());
+        return jsonResult.success("images", utils.getFakePhotos());
+    },
+    getPhotosById : function(userId) {
+        let fakePhotos = utils.getFakePhotos();
+        let images = _.filter(fakePhotos, n => n.userId === userId);
+        return jsonResult.success("images found", images);
     },
     uploadImage: function(files, userId) {
         if (!files || Object.keys(files).length === 0) {

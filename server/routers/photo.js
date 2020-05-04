@@ -4,7 +4,11 @@ const photoEntity = require('../entities/photoEntity');
 const photo = express.Router();
 
 photo.get('/all', (req, res) => {
-    res.json(photoEntity.getAll())
+    res.json(photoEntity.getAll());
+})
+
+photo.get('/all/:userId', (req, res) => {
+    res.json(photoEntity.getPhotosById(req.params.userId));
 })
 
 photo

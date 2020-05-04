@@ -2,198 +2,171 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <title>User</title>
-  <meta name="description" content="#" />
-  <link rel="stylesheet" href="dist/css/grayshift.css" />
-  <link rel="stylesheet" href="dist/css/custom.css" />
-  <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js"></script>
-  <script src="./dist/javascripts/common.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>User</title>
+    <meta name="description" content="#" />
+    <link rel="stylesheet" href="dist/css/grayshift.css" />
+    <link rel="stylesheet" href="dist/css/custom.css" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js"></script>
+    <script src="https://timeago.yarp.com/jquery.timeago.js"></script>
+    <script src="./dist/javascripts/config.js"></script>
+    <script src="./dist/javascripts/main.js"></script>
 </head>
 
 <body>
-  <div id="navigation" class="sticky-top"></div>
-  <div class="container-fluid px-lg-12 px-0 pt-3 py-5 nav-bg-light shadow">
-    <div class="container">
-      <div class="row">
-        <div class="col-5 col-sm-4 col-md-3 col-xl-2 text-center align-self-center">
-          <img class="avatar-xxl avatar rounded-circle" id="nav-avatar" alt="" width="100%" />
-        </div>
-        <div class="col-7 col-sm-8 col-md-9 col-xl-10 d-flex align-items-center">
-          <div class="d-flex flex-column justify-content-center">
-            <h4>
-              <a href="#">Yuhao</a>
-            </h4>
-            <footer>yuhao1118</footer>
-            <p class="mt-3">FRC TEAM 6766 & Durham University</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="container-fluid px-xl-12 pt-3">
-    <div class="col-md-12">
-      <div class="row">
-        <ul class="nav nav-tabs nav-justified nav-sm shadow" id="tablist" role="tablist" aria-orientation="horizontal">
-          <li class="nav-item">
-            <a class="nav-link active" data-filter="all" data-toggle="tab" href="#all" role="tab"
-               aria-selected="true">Likes</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-filter="all" data-toggle="tab" href="#all" role="tab"
-               aria-selected="true">Posts</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="container px-0 py-3">
-    <h6 class="px-3 px-sm-0 py-3">Recommend</h6>
-    <div class="row px-6">
-      <a id="avatar-group" class="nav-link d-flex flex-column align-items-center">
-        <img class="avatar avatar-md rounded-circle border" src="dist/img/avatar.jpg" width="100%" />
-        <p class="avatar-title pt-2">Yuhao Li</p>
-      </a>
-    </div>
-  </div>
-  <div class="container px-0">
-    <h6 class="px-3 px-sm-0 py-3">Feed</h6>
-    <div class="grid">
-      <div class="grid-sizer"></div>
-      <div class="gutter-sizer"></div>
-      <div class="grid-item d-none" id="grid-item-template">
-        <div class="card-body p-0">
-          <a id="img-modal" href="" data-toggle="modal">
-            <img class="shadow" id="grid-img" width="100%" alt="">
-          </a>
-          <div class="modal fade z-index-higher" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
-                aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <img id="grid-img" width="100%" alt="">
-              </div>
+    <div id="navigation" class="sticky-top"></div>
+    <div class="container-fluid px-lg-12 px-0 pt-3 py-5 nav-bg-light">
+        <div class="container">
+            <div class="row" id="profile">
+                <div class="col-5 col-sm-4 col-md-3 col-xl-2 text-center align-self-center">
+                    <img class="avatar-xxl avatar rounded-circle" id="nav-avatar" alt="" width="100%" />
+                </div>
+                <div class="col-7 col-sm-8 col-md-9 col-xl-10 d-flex align-items-center">
+                    <div class="d-flex flex-column justify-content-center">
+                        <h4>
+                            <a href="#"></a>
+                        </h4>
+                        <footer></footer>
+                        <p class="mt-3"></p>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="d-flex py-3 px-2" style="margin-bottom: 10px;">
-            <a id="avatar-group" class="nav-link d-flex">
-              <img class="avatar avatar-xs rounded-circle align-self-center border" width="100%" />
-              <div class="ml-3 d-flex flex-column justify-content-center">
-                <p class="avatar-title">Yuhao Li</p>
-                <p class="avatar-date">2 days ago</p>
-              </div>
-            </a>
-            <button id="like" class="btn d-flex link-body-danger ml-auto">
-              <p class="avatar-title align-self-center mx-2"></p>
-              <svg class="gi gi-heart-outline fs-sm" width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="currentColor"
-                    xmlns="http://www.w3.org/2000/svg">
-                <path
-                      d="M12 21a1 1 0 0 1-.71-.29l-7.77-7.78a5.26 5.26 0 0 1 0-7.4 5.24 5.24 0 0 1 7.4 0L12 6.61l1.08-1.08a5.24 5.24 0 0 1 7.4 0 5.26 5.26 0 0 1 0 7.4l-7.77 7.78A1 1 0 0 1 12 21zM7.22 6a3.2 3.2 0 0 0-2.28.94 3.24 3.24 0 0 0 0 4.57L12 18.58l7.06-7.07a3.24 3.24 0 0 0 0-4.57 3.32 3.32 0 0 0-4.56 0l-1.79 1.8a1 1 0 0 1-1.42 0L9.5 6.94A3.2 3.2 0 0 0 7.22 6z" />
-              </svg>
-            </button>
-            <button id="download" class="btn d-flex link-headings ml-2">
-              <svg class="gi gi-cloud-download-outline fs-sm" width="0.75em" height="0.75em" viewBox="0 0 24 24"
-                    fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path
-                      d="M14.31 16.38L13 17.64V12a1 1 0 0 0-2 0v5.59l-1.29-1.3a1 1 0 0 0-1.42 1.42l3 3A1 1 0 0 0 12 21a1 1 0 0 0 .69-.28l3-2.9a1 1 0 1 0-1.38-1.44z" />
-                <path
-                      d="M17.67 7A6 6 0 0 0 6.33 7a5 5 0 0 0-3.08 8.27A1 1 0 1 0 4.75 14 3 3 0 0 1 7 9h.1a1 1 0 0 0 1-.8 4 4 0 0 1 7.84 0 1 1 0 0 0 1 .8H17a3 3 0 0 1 2.25 5 1 1 0 0 0 .09 1.42 1 1 0 0 0 .66.25 1 1 0 0 0 .75-.34A5 5 0 0 0 17.67 7z" />
-              </svg>
-            </button>
-            <button class="btn d-flex link-headings ml-2">
-              <svg class="gi gi-share-outline fs-sm" width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="currentColor"
-                    xmlns="http://www.w3.org/2000/svg">
-                <path
-                      d="M18 15a3 3 0 0 0-2.1.86L8 12.34V12v-.33l7.9-3.53A3 3 0 1 0 15 6v.34L7.1 9.86a3 3 0 1 0 0 4.28l7.9 3.53V18a3 3 0 1 0 3-3zm0-10a1 1 0 1 1-1 1 1 1 0 0 1 1-1zM5 13a1 1 0 1 1 1-1 1 1 0 0 1-1 1zm13 6a1 1 0 1 1 1-1 1 1 0 0 1-1 1z" />
-              </svg>
-            </button>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
-  <a class="position-fixed z-index-high" href="#" style="right: var(--spacer-5); bottom: var(--spacer-5);">
-    <span class="icon icon-md mr-5 bg-white rounded-circle">
-      <svg class="gi gi-plus fs-sm" width="1em" height="1em" viewBox="0 0 24 24" fill="var(--black)" xmlns="http://www.w3.org/2000/svg">
-        <path d="M19 11h-6V5a1 1 0 0 0-2 0v6H5a1 1 0 0 0 0 2h6v6a1 1 0 0 0 2 0v-6h6a1 1 0 0 0 0-2z"></path>
-      </svg>
-    </span>
-  </a>
+    <div class="container px-0">
+        <h6 class="px-3 px-sm-0 py-3">Posts</h6>
+        <div class="grid">
+            <div class="grid-sizer"></div>
+            <div class="gutter-sizer"></div>
+            <div class="grid-item d-none" id="grid-item-template">
+                <div class="card-body p-0">
+                    <a id="img-modal" href="" data-toggle="modal">
+                        <img class="shadow" id="grid-img" width="100%" alt="">
+                    </a>
+                    <div class="modal fade z-index-higher" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <img id="grid-img" width="100%" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex py-3 px-2" style="margin-bottom: 10px;">
+                        <a id="avatar-group" class="nav-link d-flex">
+                            <img class="avatar avatar-xs rounded-circle align-self-center border" width="100%" />
+                            <div class="ml-3 d-flex flex-column justify-content-center">
+                                <p class="avatar-title"></p>
+                                <p class="avatar-date"></p>
+                            </div>
+                        </a>
+                        <button id="like" class="btn d-flex link-body-danger ml-auto">
+                            <svg class="gi gi-trash-2-outline fs-sm" width="0.75em" height="0.75em" viewBox="0 0 24 24"
+                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                      d="M21 6h-5V4.33A2.42 2.42 0 0 0 13.5 2h-3A2.42 2.42 0 0 0 8 4.33V6H3a1 1 0 0 0 0 2h1v11a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V8h1a1 1 0 0 0 0-2zM10 4.33c0-.16.21-.33.5-.33h3c.29 0 .5.17.5.33V6h-4zM18 19a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V8h12z">
+                                </path>
+                                <path d="M9 17a1 1 0 0 0 1-1v-4a1 1 0 0 0-2 0v4a1 1 0 0 0 1 1z"></path>
+                                <path d="M15 17a1 1 0 0 0 1-1v-4a1 1 0 0 0-2 0v4a1 1 0 0 0 1 1z"></path>
+                            </svg>
+                        </button>
+                        <button id="download" class="btn d-flex link-headings ml-2">
+                            <svg class="gi gi-cloud-download-outline fs-sm" width="0.75em" height="0.75em"
+                                 viewBox="0 0 24 24"
+                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                      d="M14.31 16.38L13 17.64V12a1 1 0 0 0-2 0v5.59l-1.29-1.3a1 1 0 0 0-1.42 1.42l3 3A1 1 0 0 0 12 21a1 1 0 0 0 .69-.28l3-2.9a1 1 0 1 0-1.38-1.44z" />
+                                <path
+                                      d="M17.67 7A6 6 0 0 0 6.33 7a5 5 0 0 0-3.08 8.27A1 1 0 1 0 4.75 14 3 3 0 0 1 7 9h.1a1 1 0 0 0 1-.8 4 4 0 0 1 7.84 0 1 1 0 0 0 1 .8H17a3 3 0 0 1 2.25 5 1 1 0 0 0 .09 1.42 1 1 0 0 0 .66.25 1 1 0 0 0 .75-.34A5 5 0 0 0 17.67 7z" />
+                            </svg>
+                        </button>
+                        <button class="btn d-flex link-headings ml-2">
+                            <svg class="gi gi-share-outline fs-sm" width="0.75em" height="0.75em" viewBox="0 0 24 24"
+                                 fill="currentColor"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                      d="M18 15a3 3 0 0 0-2.1.86L8 12.34V12v-.33l7.9-3.53A3 3 0 1 0 15 6v.34L7.1 9.86a3 3 0 1 0 0 4.28l7.9 3.53V18a3 3 0 1 0 3-3zm0-10a1 1 0 1 1-1 1 1 1 0 0 1 1-1zM5 13a1 1 0 1 1 1-1 1 1 0 0 1-1 1zm13 6a1 1 0 1 1 1-1 1 1 0 0 1-1 1z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 <script>
-  // load navbar
-  $('#navigation').load('navbar.html', () => {
-    fetch(base_url + "/user/bxzr32").then(usr => usr.json()).then(usr => {
-      $('nav #nav-login-group').addClass("d-none");
-      $('nav #nav-avatar-dropdown').show();
-      $('[id=nav-avatar]').attr('src', usr.avatar);
-      $('nav #profile').attr('href', '/user');
-      $("#following").append(usr.following.length)
-      $("#followers").append(usr.followers.length)
-    })
-  });
+    const base_url = config.base_url;
+    const urlParams = decodeUrlParams();
+    const loadImages = (api) => fetch(base_url + api)
+        .then(usr => usr.json())
+        .then(usr => {
+            if (usr.code === 200) {
+                usr = usr.data;
+                // load profile
+                $("#profile h4 a").append(usr.username);
+                $("#profile footer").append(usr.userId);
+                $("#profile p").append(usr.about);
+                $("#profile img").attr("src", usr.avatar);
 
-  const base_url = config.base_url;
+                // load images
+                fetch(base_url + `/api/photo/all/${usr.userId}`)
+                    .then((res) => res.json())
+                    .then((res) => res.data)
+                    .then((res) => {
+                        for (item of res) {
+                            let grid_item = $("#grid-item-template").clone();
+                            $(grid_item).attr("id", item.imgId).removeClass("d-none");
+                            $(grid_item).find("#avatar-group").attr("href", "/user");
+                            $(grid_item).find("#avatar-group small").append(usr.userId);
+                            $(grid_item).find("#avatar-group img").attr("src", usr.avatar);
+                            $(grid_item).find("#avatar-group .avatar-title").append(usr.username);
+                            $(grid_item).find("#avatar-group .avatar-date").append($.timeago(item.date));
+                            $(grid_item).find("#grid-img").attr("src", item.url);
+                            $(grid_item).find("#img-modal").attr("data-target", "#img" + item.imgId);
+                            $(grid_item).find(".modal,.fade").attr("id", "img" + item.imgId);
+                            $(grid_item).find("#like p").append(item.likes + " likes");
+                            $(".grid").append(grid_item);
+                        }
+                    })
+                    .then(() => {
+                        var $grid = $(".grid").imagesLoaded(() => {
+                            $grid.masonry({
+                                itemSelector: ".grid-item",
+                                percentPosition: true,
+                                columnWidth: ".grid-sizer",
+                                gutter: ".gutter-sizer",
+                            });
+                        });
+                    })
 
-  fetch(base_url + '/images')
-    .then(res => res.json())
-    .then(res => {
-      let promises = [];
-      for (item of res) {
-        promises.push(
-          Promise.resolve(item).then(item => fetch(base_url + `/user/${item.usr_id}`)
-            .then(usr => usr.json())
-            .then(usr => {
-              let grid_item = $('#grid-item-template').clone();
-              $(grid_item).attr('id', 'grid-' + item.id).removeClass('d-none');
-              $(grid_item).find('#avatar-group').attr("href", "/user");
-              $(grid_item).find('#avatar-group h3').append(usr.name);
-              $(grid_item).find('#avatar-group small').append(usr.id);
-              $(grid_item).find('#avatar-group img').attr('src', usr.avatar);
-              $(grid_item).find('#grid-img').attr('src', item.url);
-              $(grid_item).find('#img-modal').attr('data-target', '#' + item.id);
-              $(grid_item).find('.modal,.fade').attr('id', item.id);
-              $(grid_item).find('#like p').append(item.likes + ' likes');
-              // $(grid_item).find('#grid-comment').append(item.comment);
-              // $(grid_item).find('#download').append(item.downloads);
-              $('.grid').append(grid_item);
-            }))
-        );
-      }
-      return Promise.all(promises);
-    })
-    .then(() => {
-      $('.grid-item #like').click(event => {
-        let _this = event.currentTarget;
-        let id = $(_this)
-          .parents('.grid-item')
-          .attr('id');
-        let like_btns = $(`#${id} #like svg`);
-
-        like_btns.each((index, element) => {
-          let svg = $(element).children('svg');
-          if (svg.attr('fill') == 'currentColor') {
-            svg.attr('fill', 'var(--danger)');
-            $(element).css('color', 'var(--danger)');
-          } else {
-            svg.attr('fill', 'currentColor');
-            $(element).css('color', 'currentColor');
-          }
+            }
         });
-      });
-      var $grid = $('.grid').imagesLoaded(() => {
-        $grid.masonry({
-          itemSelector: '.grid-item',
-          percentPosition: true,
-          columnWidth: '.grid-sizer',
-          gutter: '.gutter-sizer'
-        });
-      });
-    });
+
+    // init navbar
+    loadNavbarAvatar();
+
+    fetch(base_url + "/api/auth/login_status")
+        .then(res => res.json())
+        .then(res => res.data)
+        .then(res => {
+            if (res.loggedIn && !urlParams.userId) {
+                loadImages("/api/user/my");
+            } else if (urlParams.userId) {
+                if (res.loggedIn && urlParams.userId === res.loggedInUser) {
+                    $(location).attr('href', base_url + "/user")
+                } else {
+                    loadImages(`/api/user/public/${urlParams.userId}`);
+                }
+            } else {
+                $(location).attr('href', base_url + "/login")
+            }
+
+        })
+
 </script>
 
 </html>

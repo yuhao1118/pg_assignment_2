@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="./dist/javascripts/common.js"></script>
+    <script src="./dist/javascripts/config.js"></script>
 </head>
 
 <body>
@@ -70,8 +70,10 @@
         })
         .then(res => res.json())
         .then(res => {
-            if (res.code === 200)
+            if (res.code === 200 && res.data)
                 $(location).attr('href', base_url)
+            else
+                alert(res.msg)
         })
     })
 </script>
