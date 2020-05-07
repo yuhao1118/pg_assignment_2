@@ -46,6 +46,16 @@ npm run start
 
 Then open [localhost: 3000](http://localhost:3000) in the browser.
 
+Two demo user accouts are:
+
+> Username: DemoUser1
+>
+> Password: 123456
+>
+> Username: DemoUser2
+>
+> Password: 123
+
 Other commands:
 
 - Pretest: `npm run pretest` use eslint to evaluate code quality.
