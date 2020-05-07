@@ -2,25 +2,39 @@
   "name": "pg_assignment_2",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./server/server.js",
   "scripts": {
     "start": "nodemon ./server/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "pretest": "npx eslint  ./server/**/*.js"
   },
   "nodemonConfig": {
-    "ignore": ["./server/uploads/", "./server/fake_data/"]
+    "ignore": [
+      "./server/uploads/",
+      "./server/fake_data/"
+    ]
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "bootstrap": "^4.4.1",
+    "eslint": "^6.8.0",
     "express": "^4.17.1",
     "express-fileupload": "^1.1.7-alpha.3",
     "express-session": "^1.17.1",
     "lodash": "^4.17.15",
     "nodemon": "^2.0.3",
-    "pug": "^2.0.4",
+    "socketio": "^1.0.0",
     "uuid": "^7.0.3"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "jest": "^26.0.1",
+    "supertest": "^4.0.2"
   }
 }

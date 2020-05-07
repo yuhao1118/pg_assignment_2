@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-sm py-3">
+    <div class="container-fluid px-6">
+        <a class="link-headings" rel="home" href="/">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="isolation:isolate" viewBox="0 0 50 52.848" height="34px"><path d=" M 10.752 10.272 L 10.752 40.08 L 2.592 40.08 L 2.592 10.272 L 10.752 10.272 L 10.752 10.272 Z  M 33.792 19.2 L 34.272 18.768 L 34.272 18.768 Q 36.912 16.512 40.08 16.512 L 40.08 16.512 L 40.08 16.512 Q 43.248 16.512 44.52 17.976 L 44.52 17.976 L 44.52 17.976 Q 45.792 19.44 45.792 22.368 L 45.792 22.368 L 45.792 40.08 L 37.632 40.08 L 37.632 25.104 L 37.632 25.104 Q 37.632 23.904 36.576 23.904 L 36.576 23.904 L 36.576 23.904 Q 35.232 23.904 34.32 24.576 L 34.32 24.576 L 34.32 40.08 L 26.16 40.08 L 26.16 25.104 L 26.16 25.104 Q 26.16 23.904 25.104 23.904 L 25.104 23.904 L 25.104 23.904 Q 23.76 23.904 22.848 24.576 L 22.848 24.576 L 22.848 40.08 L 14.784 40.08 L 14.784 17.088 L 22.128 17.088 L 22.608 18.768 L 22.8 18.768 L 22.8 18.768 Q 25.44 16.512 29.064 16.512 L 29.064 16.512 L 29.064 16.512 Q 32.688 16.512 33.792 19.2 L 33.792 19.2 L 33.792 19.2 Z " fill="rgb(0,0,0)"/></svg>
+        </a>
+        <div class="d-flex mx-auto z-index-high order-0">
+            <a href="/home" id="like" class="btn d-flex link-headings mx-2 mx-sm-3">
+                <svg class="gi gi-home-outline fs-sm" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M20.42 10.18L12.71 2.3a1 1 0 0 0-1.42 0l-7.71 7.89A2 2 0 0 0 3 11.62V20a2 2 0 0 0 1.89 2h14.22A2 2 0 0 0 21 20v-8.38a2.07 2.07 0 0 0-.58-1.44zM10 20v-6h4v6zm9 0h-3v-7a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v7H5v-8.42l7-7.15 7 7.19z">
+                    </path>
+                </svg>
+            </a>
+            <a href="/user" class="btn d-flex link-headings mx-2 mx-sm-3">
+                <svg class="gi gi-person-outline fs-sm" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm0-6a2 2 0 1 1-2 2 2 2 0 0 1 2-2z"></path>
+                    <path d="M12 13a7 7 0 0 0-7 7 1 1 0 0 0 2 0 5 5 0 0 1 10 0 1 1 0 0 0 2 0 7 7 0 0 0-7-7z"></path>
+                </svg>
+            </a>
+        </div>
+
+        <div id="nav-avatar-dropdown" class="dropdown d-none">
+            <button class="btn nav-link d-flex" data-toggle="dropdown">
+                <img id="nav-avatar" class="avatar avatar-xs rounded-circle" width="100%" />
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" style="position: absolute;">
+                <a id="profile" href="/user" class="dropdown-item">Profile</a>
+                <button id="logout" class="dropdown-item">Logout</button>
+            </div>
+        </div>
+        <div class="d-flex" id="nav-login-group">
+            <a class="font-weight-semi-bold mr-3" id="login" href="/login">Login</a>
+        </div>
+    </div>
+</nav>

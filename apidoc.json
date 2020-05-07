@@ -1,0 +1,9 @@
+{
+    "name": "Im API documentation",
+    "description": "Programming assignment 2",
+    "title": "Images",
+    "version": "0.0.0",
+    "template": {
+        "forceLanguage": "en"
+    }
+  }
